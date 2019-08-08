@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">StarsBattle</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <h1 style="text-align: center;">create a new duel</h1>
+        <div class="container" style="width:30%; margin:25px auto;">
+            <form action="/duels" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name=name1 placeholder="name of fisrt star">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name=name2 placeholder="name of second star">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" name=img1 placeholder="image of 1st star">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" name=img2 placeholder="image of 2nd star">
+                </div>
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </form>
+            <a href="/duels">Go Back</a>
+        </div>
+<% include ../partials/footer %>

@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+
+    <h1 style="text-align: center;">create a new duel</h1>
+        <div class="container" style="width:30%; margin:25px auto;">
+            <form action="/duels/<%= duel._id%>/comments" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="String" name=comment[text] placeholder="text">
+                </div>
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </form>
+            <a href="/duels">Go Back</a>
+        </div>
+<% include ../partials/footer %>

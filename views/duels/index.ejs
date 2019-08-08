@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<h1>This is the duels page!!!</h1>
+
+<a href="/duels/new">Add new Battle</a>
+
+<% duels.forEach(function(duel){ %>
+    <li>
+        <%= duel.name1 %> vs <%= duel.name2 %>
+    </li>
+<%});%>
+
+<% include ../partials/footer %>

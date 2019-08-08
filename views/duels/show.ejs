@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"> Battle</p>
+            <div class=""></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-9">
+    <div class="thumbnail">
+        <img class="img-responsive" src="<%= duel.img1%>">
+        <div class="caption-full">
+            <h4><a><%=duel.name1%></a> </h4>
+        </div>
+    </div>
+    <div class="card p-3 mb-2 bg-light text-dark">
+        <div class="text-right">
+            <a href="/duels/<%= duel._id%>/comments/new" class="btn btn-primary">Add new comment</a>
+        </div>
+        <% duel.comments.forEach(function(comment){ %>
+            <div class="row">
+                    <div class="col-md-12">
+                        <strong><%= comment.author.username%></strong>
+                        <span class="float-right">10 days ago</span>
+                        <p><%= comment.text%></p>
+                </div>
+            </div>
+        <%})%>
+    </div>
+</div>
+
+<% include ../partials/footer %>

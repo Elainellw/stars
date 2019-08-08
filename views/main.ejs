@@ -1,0 +1,34 @@
+<% include partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to the battlefield!</h1>
+            <p>View the most popular battles</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="duels">view all the duels</a>
+            </p>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% duels.forEach(function(duel){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= duel.img1 %>">
+                    <div class="caption">
+                        <h4><%= duel.name1 %> vs <%= duel.name2 %></h4>
+                        <p>
+                            <em>Submitted by <%= duel.author.username%></em>
+                        </p>
+                    </div>
+                    <p>
+                      <a href="/duels/<%= duel._id%>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <%});%>
+    </div>
+</div>
+
+<% include partials/footer %>
