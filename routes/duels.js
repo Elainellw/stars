@@ -8,6 +8,7 @@ router.get("/", function(req, res){
         if(err){
             console.log(err);
         } else{
+            console.log("find Duels: " + allDuels);
             res.render("duels/index", {duels:allDuels, currentUser: req.user});
         }
     })
@@ -24,8 +25,7 @@ router.post("/", isLoggedIn, function(req, res){
         id: req.user._id,
         username: req.user.username
     } ;
-    var newDuel = {name1:name1, name2:name2, img1:img1, img2:img2, author:author};
-
+    var newDuel = {name1:name1, name2:name2, img1:img1, img2:img2, vote1:0, vote2:0, author:author};
     Duel.create(newDuel, function(err, newlyCreated){
         if(err){
             console.log(err);
@@ -33,7 +33,7 @@ router.post("/", isLoggedIn, function(req, res){
             console.log(newlyCreated);
             res.redirect("/duels");
         }
-    })
+    });
 });
 
 router.get("/new", isLoggedIn,function(req, res){
@@ -49,6 +49,17 @@ router.get("/:id", function(req, res){
             res.render("duels/show", {duel:foundDuel});
         }
     })
+});
+
+router.post("/:id/vote", isLoggedIn, function(req,res){
+    Duel.findById(req.params.id, function(err, duel){
+        if(err){
+            console.log(err);
+            redirect("/duels");
+        }else{
+            
+        }
+    });
 });
 
 function isLoggedIn(req, res, next){

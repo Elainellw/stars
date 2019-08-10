@@ -1,20 +1,26 @@
 <% include ../partials/header %>
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <p class="lead"> Battle</p>
-            <div class=""></div>
-        </div>
-    </div>
-</div>
 
 <div class="col-md-9">
     <div class="thumbnail">
-        <img class="img-responsive" src="<%= duel.img1%>">
-        <div class="caption-full">
-            <h4><a><%=duel.name1%></a> </h4>
-        </div>
+            <h4><%= duel.name1 %> vs <%= duel.name2 %></h4>
+            <div class="row">
+                    <div class="col">
+                            <img class="img-responsive" src="<%= duel.img1 %>">
+                    </div>
+                    <div class="col">
+                            <img class="img-responsive" src="<%= duel.img2 %>">
+                    </div>
+            </div>
     </div>
+    <form action="/duels/<%= duel._id%>/comments" method="POST">
+        <div class="radio">
+            <label><input type="radio" name="vote" value=1><%= duel.name1 %></label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="vote" value=2><%= duel.name2 %></label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-sm">Submit!</button>
+    </form>
     <div class="card p-3 mb-2 bg-light text-dark">
         <div class="text-right">
             <a href="/duels/<%= duel._id%>/comments/new" class="btn btn-primary">Add new comment</a>

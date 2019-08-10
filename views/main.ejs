@@ -4,20 +4,26 @@
     <header class="jumbotron">
         <div class="container">
             <h1>Welcome to the battlefield!</h1>
-            <p>View the most popular battles</p>
             <p>
-                <a class="btn btn-primary btn-large" href="duels">view all the duels</a>
+                <a class="btn btn-primary btn-large" href="/duels/new">Add new duels</a>
             </p>
         </div>
     </header>
 
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% duels.forEach(function(duel){ %>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-6 col-sm-12">
                 <div class="thumbnail">
-                    <img src="<%= duel.img1 %>">
+                    <div class="row">
+                        <div class="col">
+                                <img src="<%= duel.img1 %>">
+                        </div>
+                        <div class="col">
+                                <img src="<%= duel.img2 %>">
+                        </div>
+                    </div>
                     <div class="caption">
-                        <h4><%= duel.name1 %> vs <%= duel.name2 %></h4>
+                        <p><strong><%= duel.name1 %> vs <%= duel.name2 %></strong></p>
                         <p>
                             <em>Submitted by <%= duel.author.username%></em>
                         </p>

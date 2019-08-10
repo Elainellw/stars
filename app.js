@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var Duel = require("./models/duel");
-var seedDB = require("./seeds");
+//var seedDB = require("./seeds");
 var Comment = require("./models/comment");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
@@ -11,11 +11,13 @@ var User = require("./models/user");
 var methodOverride = require("method-override");
 var flash = require("connect-flash");
 
+mongoose.connect("mongodb://localhost/stars_battle", { useNewUrlParser: true });
+
 var commentRoutes = require("./routes/comments"),
     duelRoutes    = require("./routes/duels"),
     indexRoutes   = require("./routes/index");
 
-seedDB();
+//seedDB();
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
@@ -38,8 +40,6 @@ app.use(function(req, res, next){
     res.locals.success = req.flash("success");
     next();
 });
-
-mongoose.connect("mongodb://localhost/stars_battle", { useNewUrlParser: true });
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));

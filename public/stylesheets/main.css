@@ -1,7 +1,8 @@
 .thumbnail img{
-    width: 50%;
+    width: 100%;
 }
 
 .thumbnail .caption-full{
     padding: 9px;
 }
+
