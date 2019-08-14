@@ -51,17 +51,6 @@ router.get("/:id", function(req, res){
     })
 });
 
-router.post("/:id/vote", isLoggedIn, function(req,res){
-    Duel.findById(req.params.id, function(err, duel){
-        if(err){
-            console.log(err);
-            redirect("/duels");
-        }else{
-            
-        }
-    });
-});
-
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();

@@ -12,12 +12,12 @@
                     </div>
             </div>
     </div>
-    <form action="/duels/<%= duel._id%>/comments" method="POST">
+    <form action="/duels/<%= duel._id%>/votes" method="POST">
         <div class="radio">
-            <label><input type="radio" name="vote" value=1><%= duel.name1 %></label>
+            <label><input type="radio" name=vote value=1><%= duel.name1 %></label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="vote" value=2><%= duel.name2 %></label>
+            <label><input type="radio" name=vote value=2><%= duel.name2 %></label>
         </div>
         <button class="btn btn-lg btn-primary btn-sm">Submit!</button>
     </form>

@@ -15,7 +15,8 @@ mongoose.connect("mongodb://localhost/stars_battle", { useNewUrlParser: true });
 
 var commentRoutes = require("./routes/comments"),
     duelRoutes    = require("./routes/duels"),
-    indexRoutes   = require("./routes/index");
+    indexRoutes   = require("./routes/index"),
+    voteRoutes    = require("./routes/votes");
 
 //seedDB();
 
@@ -46,6 +47,7 @@ app.use(express.static(__dirname+"/public"));
 app.use(methodOverride("_method"));   
 
 app.use("/duels/:id/comments", commentRoutes);
+app.use("/duels/:id/votes", voteRoutes);
 app.use("/duels", duelRoutes);
 app.use("/", indexRoutes);
 

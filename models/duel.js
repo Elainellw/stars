@@ -6,8 +6,12 @@ var duelsSchema = new mongoose.Schema({
     name2:String,
     img1:String,
     img2:String,
-    vote1:Number,
-    vote2:Number,
+    votes:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"Vote"
+        }
+    ],
     author: {
         id:{
             type: mongoose.Schema.Types.ObjectId,
