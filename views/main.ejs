@@ -1,14 +1,17 @@
 <% include partials/header %>
 
 <div class="container">
-    <header class="jumbotron">
+    <div class="jumbotron">
         <div class="container">
             <h1>Welcome to the battlefield!</h1>
-            <p>
-                <a class="btn btn-primary btn-large" href="/duels/new">Add new duels</a>
+            <p class="lead">Vote for your preferred star</p>
+            <hr class="my-4">
+            <p class="lead">
+                <p class="lead">Create your own battle</p>
+                <a class="btn btn-primary btn-lg" href="/duels/new" role="button">Add new battles</a>
             </p>
         </div>
-    </header>
+    </div>
 
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% duels.forEach(function(duel){ %>

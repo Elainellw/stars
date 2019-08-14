@@ -41,12 +41,28 @@ router.get("/new", isLoggedIn,function(req, res){
 });
 
 router.get("/:id", function(req, res){
-    Duel.findById(req.params.id,).populate("comments").exec(function(err, foundDuel){
+    Duel.findById(req.params.id,).populate("comments").populate("votes").exec(function(err, foundDuel){
         if(err){
             console.log(err);
         }else{
             console.log(foundDuel);
-            res.render("duels/show", {duel:foundDuel});
+            var support1 = 0;
+            var support2 = 0;
+            foundDuel.votes.forEach(function(vote){
+                console.log(vote.support);
+                if(vote.support === 1){
+                    support1++;
+                }else{
+                    support2++;
+                }
+            });
+            var rate1 = support1/(support1+support2)*100;
+            var rate2 = support2/(support1+support2)*100;
+            console.log("support1: "+ support1);
+            console.log("support2: "+ support2);
+            console.log("rate1: "+ rate1);
+            console.log("rate2: "+ rate2);
+            res.render("duels/show", {duel:foundDuel, rate1: rate1, rate2: rate2, support1: support1, support2: support2});
         }
     })
 });
