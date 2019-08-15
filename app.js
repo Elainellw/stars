@@ -51,6 +51,6 @@ app.use("/duels/:id/votes", voteRoutes);
 app.use("/duels", duelRoutes);
 app.use("/", indexRoutes);
 
-app.listen("3000", function(){
+app.listen("80", function(){
     console.log(" Server has Started!");
 })

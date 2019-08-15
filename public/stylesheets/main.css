@@ -6,3 +6,8 @@
     padding: 9px;
 }
 
+.jumbotron {
+    background-image: url("junbotron.jpg");
+    background-size: cover;
+  }
+

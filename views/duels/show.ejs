@@ -18,21 +18,19 @@
                 <span class="float-right"><strong><%=support1%> vote</strong></span>
             </div>
         <div class="progress">
-            <div class="progress-bar w-<%=rate1%>" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar w-<%=rate1%> bg-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div> 
         <div class="radio">
             <label><strong><input type="radio" name=vote value=2><%= duel.name2 %></strong></label>
             <span class="float-right"><strong><%=support2%> vote</strong></span>
         </div>
         <div class="progress">
-            <div class="progress-bar w-<%=rate2%>" role="progressbar" aria-valuenow="w-<%=rate2%>" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar w-<%=rate2%> bg-success" role="progressbar" aria-valuenow="w-<%=rate2%>" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <button class="btn btn-lg btn-primary btn-sm" style="margin-top: 10px; margin-bottom: 10px ;">Submit!</button>
+        <button class="btn btn-outline-dark btn-sm" style="margin-top: 10px; margin-bottom: 10px ;">Submit!</button>
     </form>
-    <div class="card p-3 mb-2 bg-light text-dark">
-        <div class="text-right">
-            <a href="/duels/<%= duel._id%>/comments/new" class="btn btn-primary">Add new comment</a>
-        </div>
+    <div class="card p-3 mb-2 text-dark">
+        <h5 class="card-title">Comments</h5>
         <% duel.comments.forEach(function(comment){ %>
             <div class="row">
                     <div class="col-md-12">
@@ -41,6 +39,15 @@
                 </div>
             </div>
         <%})%>
+        <form action="/duels/<%= duel._id%>/comments" method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">New Comment</label>
+                <textarea class="form-control" name=comment[text] rows="3"></textarea>
+            </div>
+            <div class="text-right">
+                <button class="btn bnt-sm btn-outline-dark">Submit!</button>
+            </div>
+        </form>
     </div>
 </div>
 

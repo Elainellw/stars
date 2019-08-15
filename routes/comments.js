@@ -5,6 +5,7 @@ var Comment = require("../models/comment")
 //==========
 //comments route
 //===========
+
 router.get("/new", isLoggedIn, function(req, res){
     //find duel by id
     Duel.findById(req.params.id, function(err, duel){
